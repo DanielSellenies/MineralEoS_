@@ -17,8 +17,8 @@ The following example:
 using MineralEoS
 EoS    = ComplexEoS()
 params = assign_EoS_parameters(:Diamond)
-P      = 5.0e9
-T      = 1100.0
+P      = 5.0e9 #Gpa
+T      = 1100.0 #Kelvin
 ρ, V   = density_volume(EoS, P, T, params)
 ```
 should return the density (kg/m<sup>3</sup>) and the volume (cm<sup>3</sup>):
@@ -79,7 +79,7 @@ P_\text{ref} = 3K_0 f (1+2f)^\frac{5}{2}  \left(1 + f\frac{3}{2}\left(\frac{\par
 
 where $f = \frac{1}{2}\left(\left(\frac{V_0}{V}\right)^\frac{2}{3} - 1.0\right)$ and $K$ is the bulk modulus.
 
-The 3rd order model (`mechanical_model = BM3`) sees no contribution from either $\frac{\partial^2 K}{\partial P^2}$ nor $\frac{\partial K}{\partial P}^2$:
+The 3rd order model (`mechanical_model = :BM3`) sees no contribution from either $\frac{\partial^2 K}{\partial P^2}$ nor $\frac{\partial K}{\partial P}^2$:
 
 ```math
 P_\text{ref} = 3K_0 f (1+2f)^\frac{5}{2}  \left(1 + f\frac{3}{2}\left(\frac{\partial K}{\partial P} -4\right) \right)
